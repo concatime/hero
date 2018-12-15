@@ -169,7 +169,7 @@ func UserListToWriter(userList []string, w io.Writer) {
   </body>
 </html>
 ` + "`" + `)
-	w.Write(_buffer.Bytes())
+	_buffer.WriteTo(w)
 }
 		`},
 		{file: "listwriterresult.html.go", code: `
@@ -213,7 +213,7 @@ func UserListToWriterWithResult(userList []string, w io.Writer) (n int, err erro
   </body>
 </html>
 ` + "`" + `)
-	return w.Write(_buffer.Bytes())
+	return _buffer.WriteTo(w)
 }
 		`},
 	}
