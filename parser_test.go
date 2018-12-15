@@ -66,7 +66,7 @@ const listToWriterHTML = `
 `
 
 const listToWriterWithResultHTML = `
-<%: func UserListToWriterWithResult(userList []string, w io.Writer) (n int, err error) %>
+<%: func UserListToWriterWithResult(userList []string, w io.Writer) (n int64, err error) %>
 
 <%~ "index.html" %>
 
@@ -359,7 +359,7 @@ func TestParseDir(t *testing.T) {
     dependencies.graph = make(map[string]map[string]struct{})
     dependencies.vertices = make(map[string]struct{})
 
-    parseDir(rootDir)
+    parseDir(rootDir, []string{".html"})
 
     root := parsedNodes[filepath.Join(rootDir, "list.html")]
     testRebuild(root, t)

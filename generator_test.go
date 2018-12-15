@@ -65,7 +65,7 @@ func TestGenAbsPath(t *testing.T) {
 }
 
 func TestGenerate(t *testing.T) {
-	Generate(rootDir, rootDir, "template")
+	Generate(rootDir, rootDir, "template", []string{".html"})
 
 	cases := []struct {
 		file string
@@ -184,7 +184,7 @@ import (
 	"github.com/concatime/hero"
 )
 
-func UserListToWriterWithResult(userList []string, w io.Writer) (n int, err error) {
+func UserListToWriterWithResult(userList []string, w io.Writer) (n int64, err error) {
 	_buffer := hero.GetBuffer()
 	defer hero.PutBuffer(_buffer)
 	_buffer.WriteString(` + "`" + `

@@ -297,7 +297,7 @@ func Generate(source, dest, pkgName string, extensions []string) {
 				gen(n, buffer, bufName)
 
 				results, ret := parseResults(funcDecl), ""
-				if reflect.DeepEqual(results, []string{"int", "error"}) {
+				if reflect.DeepEqual(results, []string{"int64", "error"}) {
 					ret = "return"
 				}
 
