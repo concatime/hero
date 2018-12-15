@@ -303,8 +303,8 @@ func Generate(source, dest, pkgName string, extensions []string) {
 
 				buffer.WriteString(
 					fmt.Sprintf(
-						"%s %s.Write(%s.Bytes())\n",
-						ret, paramName, bufName,
+						"%s %s.WriteTo(%s)\n",
+						ret, bufName, paramName,
 					),
 				)
 			} else {
